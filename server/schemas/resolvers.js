@@ -6,3 +6,6 @@ const { stripe } = require("stripe")("sk_test_51M84yrECDt5IVbjpPu5NGY0GdUyStAqMJ
 // start here
 // const resolvers = {
 //     Query: {
+
+
+module.exports = resolvers;
