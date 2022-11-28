@@ -32,6 +32,8 @@ module.exports = {
         // return updated request object
         return req;
     },
+    // function for our authenticated routes 
+    // user sign up credentials are passed in as arguments
     signToken: function ({ username, email, _id }) {
         const payload = { username, email, _id };
 

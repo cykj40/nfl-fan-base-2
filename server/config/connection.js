@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/nfl-fan-base', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/nfl-fan-base', {
     useNewUrlParse: true,
     useUnifiedTopology: true,
 });
