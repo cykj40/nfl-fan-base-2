@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginComponent from '../components/LoginComponent'
 // import LoginData from '../assets/accountData'
 // import Home from './Home'
 
 export default function Login() {
+  return (
+    <LoginComponent></LoginComponent>
+
+  );
+};
+
+
   /////////////////////////////////////////////////////////
 
   // const [user, setUser] = useState({ username: "", password: "" });
@@ -29,9 +36,3 @@ export default function Login() {
   // }
 
   ///////////////////////////////////////////////////////////////
-  return (
-    <LoginComponent></LoginComponent>
-
-  )
-}
-

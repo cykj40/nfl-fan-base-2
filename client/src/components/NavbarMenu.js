@@ -5,6 +5,7 @@ import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 // import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom'
 import LoginComponent from './LoginComponent';
+import SignUpComponent from './SignUpComponent';
 
 import Auth from '../utils/auth'
 
@@ -17,7 +18,7 @@ export default function NavbarMenu() {
     <>
       <Navbar bg="dark">
         <Container>
-          <Navbar.Brand>
+          <Navbar.Brand className='text-white'>
             NFL-Fan-Base
           </Navbar.Brand>
           <Nav>
@@ -30,10 +31,10 @@ export default function NavbarMenu() {
                 <Nav.Link to='/blog'>
                   Blog
                 </Nav.Link>
-                <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                <Nav.Link onClick={Auth.logout}><NavLink>Logout</NavLink></Nav.Link>
               </>
             ) : (
-              <Nav.Link onClick={() => setShowExtraNav(true)}>Login/Sign Up</Nav.Link>
+              <Nav.Link onClick={() => setShowExtraNav(true)}><NavLink>Login/Sign Up</NavLink></Nav.Link>
             )}
             <Modal
               size='lg'
@@ -60,7 +61,7 @@ export default function NavbarMenu() {
                       <LoginComponent handleModalClose={() => setShowExtraNav(false)} />
                     </Tab.Pane>
                     <Tab.Pane eventKey='signup'>
-                      <LoginComponent handleModalClose={() => setShowExtraNav(false)} />
+                      <SignUpComponent handleModalClose={() => setShowExtraNav(false)} />
                     </Tab.Pane>
                   </Tab.Content>
                 </Modal.Body>
