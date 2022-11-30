@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react';
+import DataFetching from '../assets/DataFetching';
 
 
 export default function HomeComponent() {
+
+    const [posts, setPosts] = useState([])
+
     return (
         <div>
             <h1 className='HHC'>Latest News and Highlights</h1>
             <div className='row card-centered'>
                 <section className="card col-6 column card-margin">
                     <section className="card-header">
-
                     </section>
                     <section className="card-body bg-secondary">
                         {/* <a href="/" target="_blank"><img></img></a> */}

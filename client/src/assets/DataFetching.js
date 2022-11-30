@@ -5,9 +5,10 @@ export default function DataFetching() {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        axios.get("")
+        axios.get("http://reliantstats.com/api/v1/team-info/NFL?RSC_token=ebde7dc4f5104a36&team_id=")
             .then(res => {
                 console.log(res)
+                setPosts(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -17,10 +18,12 @@ export default function DataFetching() {
 
     return (
         <div>
-            <ul>
-                {posts.map(post => (<li key={post.id}>{post.title}</li>
-                ))}
-            </ul>
+            <h1>
+                Test:
+                {posts && posts.data.NFL.map((post) => (
+                    <p key={post.team}>{post.team}</p>
+                ))}               
+            </h1>
         </div>
     )
 }

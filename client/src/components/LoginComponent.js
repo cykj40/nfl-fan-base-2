@@ -9,7 +9,7 @@ import { LOGIN_USER } from '../utils/mutations'
 
 export default function LoginComponent() {
 
-  const [userInput, setUserInput] = useState({ email: '', password: '' });
+  const [userInput, setUserInput] = useState({ username: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
