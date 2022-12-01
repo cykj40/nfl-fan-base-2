@@ -6,6 +6,7 @@ export default function DataFetching() {
 
     useEffect(() => {
         axios.get("http://reliantstats.com/api/v1/team-info/NFL?RSC_token=ebde7dc4f5104a36&team_id=")
+        
             .then(res => {
                 console.log(res)
                 setPosts(res.data)
