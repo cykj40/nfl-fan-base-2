@@ -9,7 +9,7 @@ import { LOGIN_USER } from '../utils/mutations'
 
 export default function LoginComponent() {
 
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [userInput, setUserInput] = useState({ username: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -17,7 +17,7 @@ const [loginUser] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setUserInput({ ...userInput, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -33,7 +33,7 @@ const [loginUser] = useMutation(LOGIN_USER);
     try {
       
       const { data } = await loginUser({
-        variables: { ...userFormData },
+        variables: { ...userInput },
       });
 
 
@@ -43,7 +43,7 @@ const [loginUser] = useMutation(LOGIN_USER);
       setShowAlert(true);
     }
 
-    setUserFormData({
+    setUserInput({
       username: '',
       email: '',
       password: '',
@@ -55,19 +55,19 @@ const [loginUser] = useMutation(LOGIN_USER);
       <>
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
           <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-            Something went wrong with your login credentials!
+          Credentials are not correct. Please try again!
           </Alert>
           <Form.Group>
-            <Form.Label htmlFor='email'>Email</Form.Label>
+            <Form.Label htmlFor='username'>Username</Form.Label>
             <Form.Control
               type='text'
-              placeholder='Your email'
-              name='email'
+              placeholder='Your username'
+              name='username'
               onChange={handleInputChange}
-              value={userFormData.email}
+              value={userInput.username}
               required
             />
-            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
           </Form.Group>
   
           <Form.Group>
@@ -77,13 +77,13 @@ const [loginUser] = useMutation(LOGIN_USER);
               placeholder='Your password'
               name='password'
               onChange={handleInputChange}
-              value={userFormData.password}
+              value={userInput.password}
               required
             />
             <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
           </Form.Group>
           <Button
-            disabled={!(userFormData.email && userFormData.password)}
+            disabled={!(userInput.username && userInput.password)}
             type='submit'
             variant='success'>
             Submit
