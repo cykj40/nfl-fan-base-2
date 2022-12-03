@@ -142,15 +142,14 @@ const SearchWeek = () => {
           </Form>
         </Container>
       </Jumbotron>
-      <Container>
-        <CardColumns>
+      <section>
+        <section className='text-center data-table'>
           {posts && posts.data.NFL.map((post) => {
             return (
-                <Card>
+                <section className='card data-table'>
                 <Card.Body>
                 <Card.Title>Week {post.week} </Card.Title>
-                <p className='small'>{post.away_team_name} vs {post.home_team_name}</p>
-                <Table className='data-table'>
+                <Table>
                   <tbody>
                   <td style={{ width: "33%" }}>{post.away_team_name}</td>
                   <td style={{ width: "33%" }}>VS</td>
@@ -198,11 +197,11 @@ const SearchWeek = () => {
                   </tbody>
                   </Table>
                 </Card.Body>
-                </Card>
+                </section>
             );
           })}
-        </CardColumns>
-      </Container>
+        </section>
+      </section>
       </div> 
     )
 }
