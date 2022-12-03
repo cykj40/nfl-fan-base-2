@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom'
+import { NavLink , Routes , Route } from 'react-router-dom'
 import LoginComponent from './LoginComponent';
 import SignUpComponent from './SignUpComponent';
+import SearchWeek from '../assets/LiveData';
 
 import Auth from '../utils/auth'
 
@@ -25,8 +26,10 @@ export default function NavbarMenu() {
             <Nav.Link><NavLink to="/">Home</NavLink></Nav.Link>
             {Auth.loggedIn() ? (
               <>
-                <Nav.Link to='/gamedata'>
+                <Nav.Link>
+                  <NavLink to="/gamedata">
                   Game Data
+                  </NavLink>
                 </Nav.Link>
                 <Nav.Link to='/blog'>
                   Blog
@@ -74,30 +77,3 @@ export default function NavbarMenu() {
     </>
   )
 }
-
-
-
-
-
-// {/* <Navbar bg="dark">
-//       <Container>
-//         <Navbar.Brand>
-//           NFL-Fan-Base
-//         </Navbar.Brand>
-//         <Nav>
-//         <Nav.Link><NavLink to="/">Home</NavLink></Nav.Link>
-//         {/* <Nav.Link><NavLink to="/login">Login/Sign Up</NavLink></Nav.Link> */}
-//         {Auth.loggedIn() ? (
-//                 <>
-//                   <Nav.Link to='/gamedata'>
-//                     Game Data
-//                   </Nav.Link>
-//                   <Nav.Link to='/blog'>
-//                     Blog
-//                   </Nav.Link>
-//                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-//                 </>
-//               ) : (
-//                 <Nav.Link onClick={() => setShowExtraNav(true)}>Login/Sign Up</Nav.Link>
-/* <Nav.Link><NavLink to="/gamedata">Game Data</NavLink></Nav.Link>
-<Nav.Link><NavLink to="/blog">Blog</NavLink></Nav.Link> */

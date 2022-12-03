@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
+import LiveData from '../assets/LiveData';
 
 export default function GameDataComponent() {
   return (
     <div>
-      <h1>
-        This is game data page
-      </h1>
+      <LiveData/>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import './App.css';
 import NavbarMenu from './components/NavbarMenu';
 import Home from './pages/Home'
 import Login from './pages/Login'
-// import GameData from './pages/GameData'
+import GameData from './pages/GameData'
 // import Blog from './pages/Blog'
 import Footer from './components/Footer'
 
@@ -49,6 +49,7 @@ export default function App() {
         <NavbarMenu />
         <Routes>
           <Route exact path="/" element={<Home/>} />
+          <Route exact path="/gamedata" element={<GameData/>} />
           <Route exact path="/login" element={<Login/>} />
           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
         </Routes>

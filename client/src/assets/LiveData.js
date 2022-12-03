@@ -1,56 +1,211 @@
 import React , {useState , useEffect} from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { 
+    Jumbotron, 
+    Container, 
+    Col, 
+    Form, 
+    Button, 
+    Card, 
+    Table,
+    CardColumns } from 'react-bootstrap';
 
-function NFLNews() {
-    const [posts , setPosts] = useState();
 
-    useEffect(() => {
-        axios.get('http://reliantstats.com/api/v1/live/2022-11-27/NFL?RSC_token=ebde7dc4f5104a36')
-        .then(res => {
-            // console.log(res)
-            console.log(res.data)
-            setPosts(res.data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    },[])
+const SearchWeek = () => {
+    const [searchInput, setSearchInput] = useState('');
+    var [teamInput, setTeamInput] = useState('');
+
+        const [posts , setPosts] = useState();
+
+        const handleFormSubmit = async (event) => {
+            event.preventDefault();
     
+            if(!searchInput) {
+                return false;
+            }
+    
+            try {
+              var teamChange = "";
+                if (teamInput==='BUF') {
+                  teamChange = '1'
+                } else if (teamInput==='NYJ') {
+                  teamChange = '2'
+                } else if (teamInput==='DET'){
+                  teamChange = '3'
+                } else if (teamInput==='GB') {
+                  teamChange = '4'
+                } else if (teamInput==='CAR'){
+                  teamChange = '5'
+                } else if (teamInput==='TEN') {
+                  teamChange = '6'
+                } else if (teamInput==='CHI'){
+                  teamChange = '7'
+                } else if (teamInput==='LAR') {
+                  teamChange = '8'
+                } else if (teamInput==='MIA'){
+                  teamChange = '9'
+                } else if (teamInput==='NO') {
+                  teamChange = '10'
+                } else if (teamInput==='WSH'){
+                  teamChange = '11'
+                } else if (teamInput==='TB') {
+                  teamChange = '12'
+                } else if (teamInput==='JAX'){
+                  teamChange = '13'
+                } else if (teamInput==='BAL') {
+                  teamChange = '14'
+                } else if (teamInput==='MIN'){
+                  teamChange = '15'
+                } else if (teamInput==='DAL') {
+                  teamChange = '16'
+                } else if (teamInput==='LV'){
+                  teamChange = '17'
+                } else if (teamInput==='KC') {
+                  teamChange = '18'
+                } else if (teamInput==='DEN'){
+                  teamChange = '19'
+                } else if (teamInput==='NE') {
+                  teamChange = '20'
+                } else if (teamInput==='NYG'){
+                  teamChange = '21'
+                } else if (teamInput==='PIT') {
+                  teamChange = '22'
+                } else if (teamInput==='ARI'){
+                  teamChange = '23'
+                } else if (teamInput==='SEA') {
+                  teamChange = '24'
+                } else if (teamInput==='HOU'){
+                  teamChange = '25'
+                } else if (teamInput==='CLE') {
+                  teamChange = '26'
+                } else if (teamInput==='CIN'){
+                  teamChange = '27'
+                } else if (teamInput==='IND') {
+                  teamChange = '28'
+                } else if (teamInput==='ATL'){
+                  teamChange = '29'
+                } else if (teamInput==='SF') {
+                  teamChange = '30'
+                } else if (teamInput==='DET'){
+                  teamChange = '31'
+                } else if (teamInput==='PHI') {
+                  teamChange = '32'
+                } else {
+                  setTeamInput('')
+                }
+                const response = await axios.get(`http://reliantstats.com/api/v1/live/${searchInput}/NFL?RSC_token=ebde7dc4f5104a36&team_id=${teamChange}`)
+                .then(res =>  {
+                    console.log(res.data)
+                    setPosts(res.data)
+                })
+                if (!response.ok) {
+                    throw new Error('No game that day or no data for that game!');
+                }
+    
+                setSearchInput('');;
+            } catch (err) {
+                console.error(err);
+            }
+        }
     return (
         <div>
-        {posts && posts.data.NFL.map((post) => (
-                    <div className='row card-centered' >
-                        <section className="card col-3 m-3 column">
-                        <section className="card-header">
-                            <h1>Week {post.week} </h1>
-                            <h2>{post.away_team_name} vs {post.home_team_name}</h2>
-                        </section>
-                        <section className="card-body bg-primary">
-                            <h4>{post.away_team_name} Team Stats</h4>
-                            <h6>Total Yards: {post.full_box.away_team.team_stats.total_yards}</h6>
-                            <h6>Passing Yards: {post.full_box.away_team.team_stats.passing_yards}</h6>
-                            <h6>Rushing Yards: {post.full_box.away_team.team_stats.rushing_yards}</h6>
-                            <h6>First Downs: {post.full_box.away_team.team_stats.first_downs}</h6>
-                            <h6>Total Plays: {post.full_box.away_team.team_stats.total_plays}</h6>
-                            <h6>Turnovers: {post.full_box.away_team.team_stats.turnovers}</h6>
-                            <h6>Sacks: {post.full_box.away_team.team_stats.sacks}</h6>
-                            <h6>Penalties: {post.full_box.away_team.team_stats.penalties.total} for {post.full_box.away_team.team_stats.penalties.yards} Yards</h6>
-                        </section>
-                            <h4>{post.home_team_name} Team Stats</h4>
-                            <h6>Total Yards: {post.full_box.home_team.team_stats.total_yards}</h6>
-                            <h6>Passing Yards: {post.full_box.home_team.team_stats.passing_yards}</h6>
-                            <h6>Rushing Yards: {post.full_box.home_team.team_stats.rushing_yards}</h6>
-                            <h6>First Downs: {post.full_box.home_team.team_stats.first_downs}</h6>
-                            <h6>Total Plays: {post.full_box.home_team.team_stats.total_plays}</h6>
-                            <h6>Turnovers: {post.full_box.home_team.team_stats.turnovers}</h6>
-                            <h6>Sacks: {post.full_box.home_team.team_stats.sacks}</h6>
-                            <h6>Penalties: {post.full_box.home_team.team_stats.penalties.total} for {post.full_box.away_team.team_stats.penalties.yards} Yards</h6>
-                        </section>
-                    </div> 
-        ))} 
-        </div> 
+        <Jumbotron fluid className='text-light bg-dark'>
+        <Container>
+          <h1>Search the Weeks!</h1>
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Row>
+              <Col xs={12} md={8}>
+                <Form.Control
+                  name='searchInput'
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  type='text'
+                  size='lg'
+                  placeholder='YYYY-MM-DD'
+                />
+                <Form.Control
+                  name='searchInput'
+                  value={teamInput}
+                  onChange={(e) => setTeamInput(e.target.value)}
+                  type='text'
+                  size='lg'
+                  placeholder='All caps Team Abbreviation, if empty will search all games'
+                />
+              </Col>
+              <Col xs={12} md={4}>
+                <Button type='submit' variant='success' size='lg'>
+                  Search
+                </Button>
+              </Col>
+            </Form.Row>
+          </Form>
+        </Container>
+      </Jumbotron>
+      <Container>
+        <CardColumns>
+          {posts && posts.data.NFL.map((post) => {
+            return (
+                <Card>
+                <Card.Body>
+                <Card.Title>Week {post.week} </Card.Title>
+                <p className='small'>{post.away_team_name} vs {post.home_team_name}</p>
+                <Table className='data-table'>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.away_team_name}</td>
+                  <td style={{ width: "33%" }}>VS</td>
+                  <td style={{ width: "33%" }}>{post.home_team_name}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.total_yards}</td>
+                  <td style={{ width: "33%" }}>Total Yards</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.total_yards}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.passing_yards}</td>
+                  <td style={{ width: "33%" }}>Passing Yards</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.passing_yards}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.rushing_yards}</td>
+                  <td style={{ width: "33%" }}>Rushing Yards</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.rushing_yards}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.first_downs}</td>
+                  <td style={{ width: "33%" }}>First Downs</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.first_downs}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.total_plays}</td>
+                  <td style={{ width: "33%" }}>Total Plays</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.total_plays}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.turnovers}</td>
+                  <td style={{ width: "33%" }}>Turnovers</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.turnovers}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.sacks}</td>
+                  <td style={{ width: "33%" }}>Sacks</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.sacks}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.penalties.total} for {post.full_box.away_team.team_stats.penalties.yards} Yards</td>
+                  <td style={{ width: "33%" }}>Penalities</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.penalties.total} for {post.full_box.home_team.team_stats.penalties.yards} Yards</td>
+                  </tbody>
+                  </Table>
+                </Card.Body>
+                </Card>
+            );
+          })}
+        </CardColumns>
+      </Container>
+      </div> 
     )
 }
 
-export default NFLNews
+
+export default SearchWeek
