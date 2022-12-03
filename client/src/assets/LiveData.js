@@ -156,6 +156,11 @@ const SearchWeek = () => {
                   <td style={{ width: "33%" }}>{post.home_team_name}</td>
                   </tbody>
                   <tbody>
+                  <td style={{ width: "33%" }} className="final-score">{post.full_box.away_team.score}</td>
+                  <td style={{ width: "33%" }} className="final-score">FINAL SCORE</td>
+                  <td style={{ width: "33%" }} className="final-score">{post.full_box.home_team.score}</td>
+                  </tbody>
+                  <tbody>
                   <td style={{ width: "33%" }}>{post.full_box.away_team.team_stats.total_yards}</td>
                   <td style={{ width: "33%" }}>Total Yards</td>
                   <td style={{ width: "33%" }}>{post.full_box.home_team.team_stats.total_yards}</td>
