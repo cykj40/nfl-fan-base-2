@@ -7,19 +7,51 @@
   NFL fan base is a website for NFL enthusiast. Users when they arrive on the landing page are able to view the most updated news in the NFL.Users can sign up for an account. With an account users can view data from games from previous weeks. 
 
   ## Table of Contents
+  * [Description](#description)
+  * [Technologies Used](#technologies-used)
+  * [Future Development](#future-development)
+  * [Screenshots](#screenshots)
+  * [License](#license)
+  * [Test](#test)
+  * [Contributers](#contributers)
+  * [Questions](#questions)
+  
  
 
-  ## About
-  will add technoligies used here and future development
+  ## Technologies Used
+  Front End 
+  * React 
+  * Axios
+  * React Bootstrap
+  * React-Dom 
+  * Jwt-Decode
+  * uuid
+  
+  Back End
+  * MongoDB 
+  * apollo server express
+  * Bcrypt
+  * JSON web token
+  * Mongoose 
+  * GraphQL
+  
+  Development 
+  * Heroku 
+  * MongoDB Atlas cloud
 
-  ## User Story
+  ## Future Development 
+  
+  * A Blog Section where users can leave their thoughts and coments about the NFL. 
+  * Enable users to choose a favorite team upon sign up which will enable the user to view team related content on their homepage and also to be able to view and           communicate with other fans.
+  * Create a comment section for news articles on landing page.
 
-  ## Acceptance Criteria
+
   
   ## Screenshots
- 
-  ## Installation
-  clone the project npm install and npm run develop
+ ![landingpage](https://user-images.githubusercontent.com/102045473/205515184-1ff0c735-4d12-461e-adc5-0af068bbb57a.png)
+
+ ![gamedata](https://user-images.githubusercontent.com/102045473/205515198-d1d705ba-8514-4231-9a70-55cf7c5c3d59.png)
+
 
   ## License
 ![badge](https://img.shields.io/badge/license-ISC--brightgreen)
@@ -34,10 +66,8 @@ Cyrus Jalili Khiabani, Dylan Santiago, Justin Ruiz, Nick Dibartolo, Randy Einfal
 
 ## Questions
 Contact Us<br />
-<br />
- email me cyrusk81@gmail.com<br />
- <br />
- find me on Github,  [cykj40, nickbartolo1, DylanSantiago, JustinRuiz321, Einfalt4](https://github.com/cykj40, nickbartolo1, DylanSantiago, JustinRuiz321, Einfalt4)<br />
+
+ find us on Github, <a href="https://github.com/cykj40"> cykj40 </a> <a href="https://github.com/nickbartolo"> nickbartolo1 </a> <a href="https://github.com/DylanSantiago"> DylanSantiago </a> <a href="https://github.com/JustinRuiz321"> JustinRuiz321 </a> <a href="https://github.com/Einfalt4"> Einfalt4</a> <br />
 <br /> 
 
 This Readme was made by 🚀 Cyrus, Dylan, Nick, Randy and Justin ⚡
