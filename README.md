@@ -67,7 +67,17 @@ Cyrus Jalili Khiabani, Dylan Santiago, Justin Ruiz, Nick Dibartolo, Randy Einfal
 ## Questions
 Contact Us<br />
 
- find us on Github, <a href="https://github.com/cykj40"> cykj40 </a> <a href="https://github.com/nickdibartolo1"> nickbartolo1 </a> <a href="https://github.com/DylanSantiago"> DylanSantiago </a> <a href="https://github.com/JustinRuiz321"> JustinRuiz321 </a> <a href="https://github.com/Einfalt4"> Einfalt4</a> <br />
+Find us on Github!
+
+<a href="https://github.com/cykj40"> Cyrus Khiabani </a> 
+
+<a href="https://github.com/nickdibartolo1"> Nick Dibartolo </a>
+
+<a href="https://github.com/DylanSantiago"> Dylan Santiago </a> 
+
+<a href="https://github.com/JustinRuiz321"> Justin Ruiz </a> 
+
+<a href="https://github.com/Einfalt4"> Randy Einfalt </a> <br />
 <br /> 
 
 This Readme was made by 🚀 Cyrus, Dylan, Nick, Randy and Justin ⚡
