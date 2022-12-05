@@ -64,8 +64,8 @@ None
 ## Contributors
 Cyrus Jalili Khiabani, Dylan Santiago, Justin Ruiz, Nick Dibartolo, Randy Einfalt
 
-## Questions
-Contact Us<br />
+## Questions? Contact Us!
+<br />
 
 Find us on Github!
 
