@@ -4,7 +4,7 @@
   ![badge](https://img.shields.io/badge/license-ISC--brightgreen)<br />
 
   ## Description 
-  NFL fan base is a website for the NFL enthusiast. When they arrive on the landing page, users are able to view the most updated news in the NFL. Users can sign up for an account where they can view data from games from the current week or previous weeks. 
+  NFL Fan Base is a website for the NFL enthusiast. When they arrive on the landing page, users are able to view the most updated news in the NFL. Users can sign up for an account where they can view data from games from the current week or previous weeks. 
 
   ## Table of Contents
   * [Description](#description)
@@ -41,9 +41,9 @@
 
   ## Future Development 
   
-  * A Blog Section where users can leave their thoughts and coments about the NFL. 
-  * Enable users to choose a favorite team upon sign up which will enable the user to view team related content on their homepage and also to be able to view and           communicate with other fans.
-  * Create a comment section for news articles on landing page.
+  * A Blog Section where users can leave their thoughts and comments about the NFL. 
+  * Enable users to choose a favorite team upon sign-up which will enable the user to view team related content on their homepage and also to view and           communicate with other fans.
+  * Create a comment section for news articles on the landing page.
 
 
   
@@ -61,7 +61,7 @@ This application is licensed by ISC
 ## Test 
 None
 
-## Contributers
+## Contributors
 Cyrus Jalili Khiabani, Dylan Santiago, Justin Ruiz, Nick Dibartolo, Randy Einfalt
 
 ## Questions
