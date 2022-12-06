@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import GameData from './pages/GameData'
 import Footer from './components/Footer'
+import Blog from './pages/Blog'
 
 import {
   ApolloClient,
@@ -44,6 +45,7 @@ export default function App() {
         <NavbarMenu />
         <Routes>
           <Route exact path="/" element={<Home/>} />
+          <Route exact path="/blog" element={<Blog/>} />
           <Route exact path="/gamedata" element={<GameData/>} />
           <Route exact path="/login" element={<Login/>} />
           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
