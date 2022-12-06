@@ -1,4 +1,4 @@
-import React , {useState , useEffect} from 'react';
+import React , {useState} from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
@@ -9,6 +9,7 @@ import {
     Card, 
     Table,
    } from 'react-bootstrap';
+
 
 
 const SearchWeek = () => {
