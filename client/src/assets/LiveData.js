@@ -151,9 +151,14 @@ const SearchWeek = () => {
                 <Card.Title>Week {post.week} </Card.Title>
                 <Table>
                   <tbody>
-                  <td style={{ width: "33%" }}>{post.away_team_name}</td>
-                  <td style={{ width: "33%" }}>VS</td>
-                  <td style={{ width: "33%" }}>{post.home_team_name}</td>
+                  <td style={{ width: "33%" }} className="final-score">{post.away_team_name}</td>
+                  <td style={{ width: "33%" }} className="final-score">VS</td>
+                  <td style={{ width: "33%" }} className="final-score">{post.home_team_name}</td>
+                  </tbody>
+                  <tbody>
+                  <td style={{ width: "33%" }}>{post.full_box.away_team.record}</td>
+                  <td style={{ width: "33%" }}>Team Record</td>
+                  <td style={{ width: "33%" }}>{post.full_box.home_team.record}</td>
                   </tbody>
                   <tbody>
                   <td style={{ width: "33%" }} className="final-score">{post.full_box.away_team.score}</td>
