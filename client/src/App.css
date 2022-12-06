@@ -140,3 +140,26 @@ box-shadow: inset 100px 100px 100px 0 white;
 .c-border{
   border: solid 4px black;
 }
+
+/* search bar padding in game data */
+.SB-style{
+  margin: 25px 25px 60px 25px;
+  height: 250px;
+  padding: 2%;
+  border-radius: 20px;
+  /* display: flex; */
+  }
+  
+  .drop-style{
+    max-height: 500%;
+    overflow-y: auto;
+  
+  }
+  
+  .drop-m{
+    margin: 10px 0 0 0;
+  }
+  
+  .form-m{
+    margin: 10px 0 10px 0;
+  }
