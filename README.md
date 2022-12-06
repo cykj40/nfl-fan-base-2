@@ -82,6 +82,10 @@ Find us on Github!
 <a href="https://github.com/Einfalt4"> Randy Einfalt </a> <br />
 <br /> 
 
+Link to Google Slides
+
+<a href="https://docs.google.com/presentation/d/1xSWGlU1h4CbdAXbu72t_bivvWP0huk2aTMPjeiI7O-M/edit?usp=sharing"> Google Slides </a>
+
 This Readme was made by 🚀 Cyrus, Dylan, Nick, Randy and Justin ⚡
 
 
