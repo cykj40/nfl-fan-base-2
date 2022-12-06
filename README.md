@@ -48,7 +48,8 @@
 
   
   ## Screenshots
- ![landingpage](https://user-images.githubusercontent.com/102045473/205515184-1ff0c735-4d12-461e-adc5-0af068bbb57a.png)
+ ![landingpage]![Screenshot (27)](https://user-images.githubusercontent.com/107439535/205775681-8301d1d6-3632-4374-b506-fae6a100a6ed.png)
+
 
  ![gamedata](https://user-images.githubusercontent.com/102045473/205515198-d1d705ba-8514-4231-9a70-55cf7c5c3d59.png)
 
