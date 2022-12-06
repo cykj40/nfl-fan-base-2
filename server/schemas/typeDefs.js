@@ -15,11 +15,17 @@ const { gql } = require('apollo-server-express');
 
     type Query {
         me: User
+        users: [User]
+        user(username: String!): User
+        comments(username: String): [Comment]
+        comment(commentId: ID!): Comment
     }
 
     type Mutation {
-        login(username: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
+        addComment(commentText: String!): Comment
+        removeComment(commentId: ID!): Comment
     }
 `;
 
