@@ -25,9 +25,7 @@ const userSchema = new Schema({
         }
     ]
 });
-    // if we save teams ill make a saveTeams: [{}]
 
-    // hash user password
     userSchema.pre("save", async function (next) {
         if (this.isNew || this.isModified('password')) {
             const saltRounds = 10;
