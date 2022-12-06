@@ -44,29 +44,6 @@ db.once('open', async () => {
          commentAuthor: 'User106'
      })
 
-    // await Comment.create({
-    //     commentText: '49ers defense is lethal!!! Nick Bosa DPOY.',
-    //     createdAt: '',
-    //     commentAuthor: 'User107'
-    // })
-
-    // await Comment.create({
-    //     commentText: 'Are the Packers cooked? Is this the end for them?',
-    //     createdAt: '',
-    //     commentAuthor: 'User108'
-    // })
-
-    // await Comment.create({
-    //     commentText: 'Who would have thought Geno Smith would revive his career the way he has this season. Its remarkable.',
-    //     createdAt: '',
-    //     commentAuthor: 'User109'
-    // })
-
-    // await Comment.create({
-    //     commentText: 'NFC South might be the worst division ive ever seen',
-    //     createdAt: '',
-    //     commentAuthor: 'User110'
-    // })
 
     await User.create({
         username: 'user100',
@@ -111,33 +88,6 @@ db.once('open', async () => {
          password: 'password6',
             comments: [comment7]
      })
-
-    // await User.create({
-    //     username: 'user107',
-    //     email: 'user107@gmail.com',
-    //     password: 'password7',
-    // })
-
-    // await User.create({
-    //     username: 'user108',
-    //     email: 'user108@gmail.com',
-    //     password: 'password8',
-    // })
-
-    // await User.create({
-    //     username: 'user109',
-    //     email: 'user109@gmail.com',
-    //     password: 'password9',
-    // })
-
-    // await User.create({
-    //     username: 'user110',
-    //     email: 'user110@gmail.com',
-    //     password: 'password10',
-    // })
-
-
-
-
+     
   process.exit();
 });
