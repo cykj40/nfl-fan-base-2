@@ -1,15 +1,13 @@
-import React , {useState , useEffect} from 'react';
+import React , {useState} from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { 
-    Jumbotron, 
     Container, 
     Col, 
     Form, 
     Button, 
     Card, 
-    Table,
-    CardColumns } from 'react-bootstrap';
+    Table } from 'react-bootstrap';
 
 
 const SearchWeek = () => {
@@ -110,7 +108,7 @@ const SearchWeek = () => {
         }
     return (
         <div>
-        <Jumbotron fluid className='text-light bg-dark'>
+        <div fluid className='text-light bg-dark'>
         <Container>
           <h1>Search the Weeks!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -141,7 +139,7 @@ const SearchWeek = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
+      </div>
       <section>
         <section className='text-center data-table'>
           {posts && posts.data.NFL.map((post) => {
