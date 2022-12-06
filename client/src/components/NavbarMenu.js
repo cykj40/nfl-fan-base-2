@@ -34,7 +34,7 @@ export default function NavbarMenu() {
                 <Nav.Link to='/blog'>
                   <NavLink className="navLink">Blog</NavLink>
                 </Nav.Link>
-                <Nav.Link onClick={Auth.logout}><NavLink>Logout</NavLink></Nav.Link>
+                <Nav.Link onClick={Auth.logout}><NavLink className="navLink">Logout</NavLink></Nav.Link>
               </>
             ) : (
               <Nav.Link onClick={() => setShowExtraNav(true)}><NavLink className="navLink">Login/Sign Up</NavLink></Nav.Link>
