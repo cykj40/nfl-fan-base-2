@@ -9,7 +9,6 @@ function NFLNews() {
     useEffect(() => {
         axios.get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news')
         .then(res => {
-            // console.log(res)
             console.log(res.data)
             setPosts(res.data)
         })
@@ -23,16 +22,16 @@ function NFLNews() {
             <h1 className='HHC'>Latest News and Articles</h1>
         {posts && posts.articles.map((post) => (
                     <div className='row card-centered' >
-                        <section className="card col-3 m-3 column w-75">
+                        <section className="card col-3 m-3 column w-75 c-border ">
                         <section className="card-header">
-                            <h2>{post.headline}</h2>
+                            <h2 className='HHC'>{post.headline}</h2>
                         </section>
                         <section className="bg-secondary photo">
                             <img src={post.images[0].url} alt="image" />
                         </section>
-                        <h5 className='description'>{post.description}</h5>
-                        <p key={post.key} className="description">Click <a href={post.links.web.href} target="_blank" className='link'>Here</a> for the entire Article</p>
-                        <p>Published on: {post.published}</p>
+                        <h5 className='description HHC'>{post.description}</h5>
+                        <p key={post.key} className="description C-T">Click <a href={post.links.web.href} target="_blank" className='link'><strong>Here</strong></a> for the entire Article</p>
+                        <p className='C-T'>Published on: {post.published}</p>
                         </section>
                     </div> 
         ))} 
