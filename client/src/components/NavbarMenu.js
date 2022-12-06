@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-// import Container from 'react-bootstrap/Container';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-import { NavLink , Routes , Route } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import LoginComponent from './LoginComponent';
 import SignUpComponent from './SignUpComponent';
-import SearchWeek from '../assets/LiveData';
 
 import Auth from '../utils/auth'
 
@@ -31,8 +27,8 @@ export default function NavbarMenu() {
                   Game Data
                   </NavLink>
                 </Nav.Link>
-                <Nav.Link to='/blog'>
-                  <NavLink className="navLink">Blog</NavLink>
+                <Nav.Link>
+                  <NavLink to='/blog' className="navLink">Blog</NavLink>
                 </Nav.Link>
                 <Nav.Link onClick={Auth.logout}><NavLink className="navLink">Logout</NavLink></Nav.Link>
               </>

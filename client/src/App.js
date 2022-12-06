@@ -5,7 +5,6 @@ import NavbarMenu from './components/NavbarMenu';
 import Home from './pages/Home'
 import Login from './pages/Login'
 import GameData from './pages/GameData'
-// import Blog from './pages/Blog'
 import Footer from './components/Footer'
 
 import {
@@ -21,9 +20,9 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
+
   const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
+
   return {
     headers: {
       ...headers,
