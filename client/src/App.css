@@ -147,6 +147,7 @@ box-shadow: inset 100px 100px 100px 0 white;
   height: 250px;
   padding: 2%;
   border-radius: 20px;
+  background-color: rgba(128, 128, 128, 0.877);
   /* display: flex; */
   }
   
@@ -162,4 +163,50 @@ box-shadow: inset 100px 100px 100px 0 white;
   
   .form-m{
     margin: 10px 0 10px 0;
+  }
+
+  .C{
+    max-width: 400px;
+    margin: 70px auto;
+    text-align: center;
+  }
+
+  .blog-m{
+    margin: 60px;
+    display: block;
+    text-align: center;
+  }
+
+  .card-m{
+    margin: 60px 0 60px 0;
+  }
+
+  .Bpost-m{
+    margin: 40px 0 40px 0;
+  }
+
+   .C textarea, .C select{
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid rgb(68, 0, 255);
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .C button{
+    background-color: rgb(40, 153, 40);
+    margin: 10px 0 10px 0;
+  }
+
+  .navSpan{
+    color: #54b3d6;
+
+  }
+
+  .BPost-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }

@@ -16,7 +16,7 @@ export default function NavbarMenu() {
       <Navbar bg="dark">
         <Container>
           <Navbar.Brand className='text-white gfont'>
-            NFL-Fan-Base
+            <span className="navSpan">NFL</span> Fan-Base
           </Navbar.Brand>
           <Nav>
             <Nav.Link><NavLink to="/" className="navLink">Home</NavLink></Nav.Link>
@@ -24,7 +24,7 @@ export default function NavbarMenu() {
               <>
                 <Nav.Link>
                   <NavLink to="/gamedata" className="navLink">
-                  Game Data
+                    Game Data
                   </NavLink>
                 </Nav.Link>
                 <Nav.Link>
@@ -41,7 +41,7 @@ export default function NavbarMenu() {
               onHide={() => setShowExtraNav(false)}
               aria-labelledby='signup-modal'>
 
-                
+
               <Tab.Container defaultActiveKey='login'>
                 <Modal.Header closeButton>
                   <Modal.Title id='signup-modal'>
