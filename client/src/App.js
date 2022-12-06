@@ -16,7 +16,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -38,9 +37,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
-
-
 export default function App() {
   return (
     <ApolloProvider client={client}>
@@ -59,17 +55,3 @@ export default function App() {
     </ApolloProvider>
   );
 }
-
-
-// {/* <div>
-// <Router>
-//   <NavbarMenu/>
-//   <Routes>
-//   <Route path="/login" element={<Login />}></Route>
-//   <Route path="/gamedata" element={<GameData />}></Route>
-//   <Route path="/blog" element={<Blog />}></Route>
-//   <Route path="/" element={<Home />}></Route>
-//   </Routes>
-//   <Footer/>
-// </Router>
-// </div> */}
