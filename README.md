@@ -29,7 +29,7 @@
   
   Back End
   * MongoDB 
-  * apollo server express
+  * Apollo Server Express
   * Bcrypt
   * JSON web token
   * Mongoose 
@@ -37,7 +37,7 @@
   
   Development 
   * Heroku 
-  * MongoDB Atlas cloud
+  * MongoDB Atlas Cloud
 
   ## Future Development 
   
