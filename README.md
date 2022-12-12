@@ -13,7 +13,7 @@
   * [Screenshots](#screenshots)
   * [License](#license)
   * [Test](#test)
-  * [Contributers](#contributers)
+  * [Contributors](#contributors)
   * [Questions](#questions)
   
  
