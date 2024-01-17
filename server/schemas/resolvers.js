@@ -1,99 +1,63 @@
-const { AuthenticationError } = require('apollo-server-express');  
-const { User } = require('../models');
-const { Comment } = require('../models');
-const { signToken } = require('../utils/auth');
-const { stripe } = require("stripe")("sk_test_51M84yrECDt5IVbjpPu5NGY0GdUyStAqMJVjDu8s06GutnfhWWMGBwwYKAGLnGVbCFTqAm3FGYBF4k3rbV1EenvJY00oh9Ac4K5");
-
+// ... Existing imports
+const { Post } = require('../models'); // Import your Post model
+const { Reaction } = require('../models'); // Import your Reaction model
 
 const resolvers = {
-    Query: {
-        me: async (parent, args, context) => {
-            if (context.user) {
-                const userData = await User.findOne({ _id: context.user._id })
-                    .select('-__v -password')
+  // ... Existing resolvers
 
-                return userData;
-            }
-
-            throw new AuthenticationError('Not logged in');
-        },
-        
-        users: async () => {
-            return User.find().populate('comments');
-        },
-          user: async (parent, { username }) => {
-            return User.findOne({ username }).populate('comments');
-        },
-          comments: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Comment.find(params).sort({ createdAt: -1 });
-        },
-          comment: async (parent, { commentId }) => {
-            return Comment.findOne({ _id: commentId });
-        },
+  Query: {
+    // ... Existing query resolvers
+    posts: async (parent, args) => {
+      return Post.find().populate('author').populate({
+        path: 'comments',
+        populate: { path: 'commentAuthor' } // Populate comment authors
+      });
     },
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId }).populate('author').populate('comments.commentAuthor');
+    },
+  },
 
-    Mutation: {
-        login: async (parent, { username, password }) => {
-            const user = await User.findOne({ username });
+  Mutation: {
+    // ... Existing mutation resolvers
+    createPost: async (parent, { content }, context) => {
+      if (context.user) {
+        const post = await Post.create({
+          author: context.user._id,
+          content,
+          timestamp: new Date(),
+        });
+        return post;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addReaction: async (parent, { postId, reactionType }, context) => {
+      if (context.user) {
+        const existingReaction = await Reaction.findOne({
+          user: context.user._id,
+          post: postId,
+        });
 
-            if (!user) {
-                throw new AuthenticationError('Incorrect credentials');
-            }
+        if (existingReaction) {
+          if (existingReaction.type === reactionType) {
+            await Reaction.findOneAndDelete({ _id: existingReaction._id }); // Remove existing reaction
+          } else {
+            await Reaction.findOneAndUpdate({ _id: existingReaction._id }, { type: reactionType }); // Update reaction type
+          }
+        } else {
+          await Reaction.create({
+            user: context.user._id,
+            post: postId,
+            type: reactionType,
+          });
+        }
 
-            const correctPassword = await user.isCorrectPassword(password);
-
-            if (!correctPassword) {
-                throw new AuthenticationError('Incorrect credentials');
-            }
-
-            const token = signToken(user);
-            return { token, user };
-        },
-
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
-
-            return { token, user };
-        },
-
-        addComment: async (parent, { commentText }, context) => {
-            if (context.user) {
-              const comment = await Comment.create({
-                commentText,
-                commentAuthor: context.user.username,
-              });
-      
-              await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { comments: comment._id } }
-              );
-      
-              return comment;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-          },
-          removeComment: async (parent, { commentId }, context) => {
-            if (context.user) {
-              const comment = await Comment.findOneAndDelete({
-                _id: commentId,
-                commentAuthor: context.user.username,
-              });
-      
-              await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $pull: { comments: comment._id } }
-              );
-      
-              return comment;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-          },
-       
-
-    }
+        const post = await Post.findOne({ _id: postId }).populate('reactions.user'); // Get updated post with reactions
+        return post;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+  },
 };
-
 
 module.exports = resolvers;

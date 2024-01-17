@@ -2,6 +2,7 @@ import React , {useState , useEffect} from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css'
+import {  Col, Row } from 'react-bootstrap';
 
 function NFLNews() {
     const [posts , setPosts] = useState();

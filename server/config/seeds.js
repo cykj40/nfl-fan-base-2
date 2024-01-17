@@ -1,93 +1,34 @@
 const db = require('./connection');
-const { User, Comment } = require('../models');
+const { User, Comment, Post, Reaction } = require('../models'); // Import new models
 
 db.once('open', async () => {
-    const comment1 = await Comment.create({
-        commentText: 'Mike White looks like the real deal',
-        createdAt: '',
-        commentAuthor: 'User100'
-    })
+  // Create sample posts with associated reactions and comments
+  const post1 = await Post.create({
+    author: 'user100',
+    content: 'Here is my first blog post!',
+  });
+  await Reaction.create({ user: 'user102', post: post1._id, type: 'LIKE' });
+  await Comment.create({ commentText: 'Great post!', commentAuthor: 'user103', post: post1._id });
 
-   const comment2 = await Comment.create({
-        commentText: 'Trevor Lawrence finally showed why he was the #1 pick.',
-        createdAt: '',
-        commentAuthor: 'User100'
-    })
+  const post2 = await Post.create({
+    author: 'user104',
+    content: 'Sharing my thoughts on the latest tech trends.',
+  });
+  await Reaction.create({ user: 'user101', post: post2._id, type: 'WOW' });
+  await Comment.create({ commentText: 'Interesting insights!', commentAuthor: 'user105', post: post2._id });
 
-    const comment3 = await Comment.create({
-         commentText: 'Dang Cardinals ruined my bet.',
-         createdAt: '',
-         commentAuthor: 'User102'
-    })
+  // ... Create more sample posts, reactions, and comments as needed
 
-    const comment4 = await Comment.create({
-         commentText: 'I always knew the Giants were frauds. They wont win another game this year.',
-         createdAt: '',
-         commentAuthor: 'User103'
-     })
+  // Create users with associated comments and posts
+  await User.create({
+    username: 'user100',
+    email: 'user100@gmail.com',
+    password: 'password1',
+    posts: [post1], // Add created posts to user
+    comments: [/* ... */], // Add associated comments here
+  });
 
-    const comment5 = await Comment.create({
-         commentText: 'NFC is so wide open. I wonder whos going to win the conference.',
-         createdAt: '',
-         commentAuthor: 'User104'
-     })
+  // ... Create other users with their associated posts and comments
 
-     const comment6 = await Comment.create({
-         commentText: 'I wonder how truly healthy Josh Allen is. Bills wont win anything without him.',
-         createdAt: '',
-         commentAuthor: 'User105'
-     })
-
-    const comment7 = await Comment.create({
-         commentText: 'Man Pat Mahomes is a baaaaaad man.',
-         createdAt: '',
-         commentAuthor: 'User106'
-     })
-
-
-    await User.create({
-        username: 'user100',
-        email: 'user100@gmail.com',
-        password: 'password1',
-        comments: [comment1, comment2]
-    });
-
-     await User.create({
-         username: 'user102',
-         email: 'user101@gmail.com',
-         password: 'password2',
-         comments: [comment3]
-     });
-
-     await User.create({
-         username: 'user103',
-         email: 'user102@gmail.com',
-         password: 'password3',
-         comments: [comment4]
-     })
-
-    
-
-     await User.create({
-         username: 'user104',
-         email: 'user104@gmail.com',
-         password: 'password5',
-         comments: [comment5]
-        })
-
-     await User.create({
-         username: 'user105',
-         email: 'user105@gmail.com',
-         password: 'password6',
-         comments: [comment6]
-     })
-
-     await User.create({
-         username: 'user106',
-         email: 'user106@gmail.com',
-         password: 'password6',
-            comments: [comment7]
-     })
-     
   process.exit();
 });
