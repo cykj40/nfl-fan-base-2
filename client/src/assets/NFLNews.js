@@ -19,24 +19,28 @@ function NFLNews() {
     
     return (
         <div>
-            <h1 className='HHC'>Latest News and Articles</h1>
-        {posts && posts.articles.map((post) => (
-                    <div className='row card-centered' >
-                        <section className="card col-3 m-3 column w-75 c-border ">
-                        <section className="card-header">
-                            <h2 className='HHC'>{post.headline}</h2>
-                        </section>
-                        <section className="bg-secondary photo">
-                            <img src={post.images[0].url} alt="image" />
-                        </section>
-                        <h5 className='description HHC'>{post.description}</h5>
-                        <p key={post.key} className="description C-T">Click <a href={post.links.web.href} target="_blank" className='link'><strong>Here</strong></a> for the entire Article</p>
-                        <p className='C-T'>Published on: {post.published}</p>
-                        </section>
-                    </div> 
-        ))} 
-        </div> 
-    )
+          <h1 className='HHC'>Latest News and Articles</h1>
+          <Row>
+            {posts && posts.articles.map((post) => (
+              <Col md={4} key={post.key} className="mb-4">
+                <section className="card">
+                  <section className="card-header">
+                    <h2 className='HHC'>{post.headline}</h2>
+                  </section>
+                  <section className="bg-secondary photo">
+                    <img src={post.images[0].url} alt="image" />
+                  </section>
+                  <h5 className='description HHC'>{post.description}</h5>
+                  <p key={post.key} className="description C-T">
+                    Click <a href={post.links.web.href} target="_blank" className='link'><strong>Here</strong></a> for the entire Article
+                  </p>
+                  <p className='C-T'>Published on: {post.published}</p>
+                </section>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      );
 }
 
 export default NFLNews
